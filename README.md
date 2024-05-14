@@ -2,7 +2,8 @@
 
 Juxta is a Streamlit web application that allows users to connect their thoughts by searching for similar thoughts based on user input and add to the database.
 
-![alt text]([http://url/to/img.png](https://github.com/Vipi-14/juxta-search_your_thoughts/blob/master/db/img.png))
+![alt text]([http://url/to/img.png](https://github.com/Vipi-14/juxta-search_your_thoughts/blob/master/db/img.png?raw=true)
+
 
 ## Overview
 
