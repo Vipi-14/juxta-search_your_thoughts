@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from htmlTemplates import css, bot_template, user_template
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
 import json
 
 with open('db/texts.json','r') as jn:

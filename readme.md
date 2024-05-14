@@ -16,8 +16,6 @@ Juxta uses SentenceTransformer to encode text into embeddings and then calculate
 
 1. Clone the repository:
 
-
-
 ## Install dependencies:
 
 pip install -r requirements.txt
