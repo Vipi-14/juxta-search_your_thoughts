@@ -39,9 +39,10 @@ def main():
     if texts:
         with st.sidebar.expander("List of Thoughts", expanded=True):
             for idx, text in enumerate(texts):
-                col1, col2 = st.sidebar.columns([8, 2])
+                col1, col2 = st.sidebar.columns([9, 1])
                 col1.markdown(f"- {text}")
-                if col2.button("Delete", key=idx):
+                delete_button = col2.markdown(f"<a href='#' onclick='window.location.reload()'><img src='https://img.icons8.com/ios-glyphs/30/000000/trash.png' height='15px' style='float:right;' alt='Delete Icon'></a>", unsafe_allow_html=True)
+                if delete_button:
                     texts.pop(idx)
                     with open('db/texts.json', 'w') as jn:
                         json.dump(texts, jn, indent=4)
