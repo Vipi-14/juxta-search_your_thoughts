@@ -76,7 +76,10 @@ def main():
             embeddings = get_embeddings(texts)  # Re-embed texts after addition
             st.write("User thought added successfully!")
 
+        
+        with open('db/texts.json','w') as jn:
+        json.dump(texts,jn,indent=4)
+
 if __name__ == '__main__':
     main()
-    with open('db/texts.json','w') as jn:
-        json.dump(texts,jn,indent=4)
+    
