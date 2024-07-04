@@ -33,13 +33,19 @@ def main():
     st.header("Connect Your Thoughts :thought_balloon:")
     user_thought = st.text_input("Enter your thought:")
 
-    # Sidebar for displaying the list of thoughts
+    # Sidebar for displaying and deleting the list of thoughts
     st.sidebar.header("Your Thoughts")
     st.sidebar.write("<hr>", unsafe_allow_html=True)
     if texts:
         with st.sidebar.expander("List of Thoughts", expanded=True):
-            for text in texts:
-                st.markdown(f"- {text}")
+            for idx, text in enumerate(texts):
+                col1, col2 = st.sidebar.columns([8, 2])
+                col1.markdown(f"- {text}")
+                if col2.button("Delete", key=idx):
+                    texts.pop(idx)
+                    with open('db/texts.json', 'w') as jn:
+                        json.dump(texts, jn, indent=4)
+                    st.experimental_rerun()
     else:
         st.sidebar.write("No thoughts recorded yet.")
     
