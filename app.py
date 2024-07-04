@@ -28,8 +28,20 @@ def main():
                        page_icon=":thought_balloon:")
     st.write(css, unsafe_allow_html=True)
 
+    st.write("<style>body { font-family: 'Arial'; }</style>", unsafe_allow_html=True)
+
     st.header("Connect Your Thoughts :thought_balloon:")
     user_thought = st.text_input("Enter your thought:")
+
+    # Sidebar for displaying the list of thoughts
+    st.sidebar.header("Your Thoughts")
+    st.sidebar.write("<hr>", unsafe_allow_html=True)
+    if texts:
+        with st.sidebar.expander("List of Thoughts", expanded=True):
+            for text in texts:
+                st.markdown(f"- {text}")
+    else:
+        st.sidebar.write("No thoughts recorded yet.")
     
     if user_thought:
         st.write("Searching ...")
