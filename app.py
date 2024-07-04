@@ -78,7 +78,7 @@ def main():
 
         
         with open('db/texts.json','w') as jn:
-        json.dump(texts,jn,indent=4)
+            json.dump(texts,jn,indent=4)
 
 if __name__ == '__main__':
     main()
