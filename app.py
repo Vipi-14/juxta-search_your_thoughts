@@ -41,7 +41,7 @@ def main():
             for idx, text in enumerate(texts):
                 col1, col2 = st.sidebar.columns([9, 1])
                 col1.markdown(f"- {text}")
-                delete_button = col2.markdown(f"<a href='#' onclick='window.location.reload()'><img src='https://img.icons8.com/ios-glyphs/30/000000/trash.png' height='15px' style='float:right;' alt='Delete Icon'></a>", unsafe_allow_html=True)
+                delete_button = col2.button("❌", key=f"delete_{idx}")
                 if delete_button:
                     texts.pop(idx)
                     with open('db/texts.json', 'w') as jn:
