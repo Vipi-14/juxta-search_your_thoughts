@@ -43,7 +43,7 @@ def main():
                 col1.markdown(f"- {text}")
                 delete_button = col2.button("❌", key=f"delete_{idx}")
                 if delete_button:
-                    confirm_delete = st.sidebar.button(f"Confirm Delete {idx}")
+                    confirm_delete = st.sidebar.button(f"Confirm Delete")
                     if confirm_delete:
                         texts.pop(idx)
                         with open('db/texts.json', 'w') as jn:
