@@ -39,14 +39,16 @@ def main():
     if texts:
         with st.sidebar.expander("List of Thoughts", expanded=True):
             for idx, text in enumerate(texts):
-                col1, col2 = st.sidebar.columns([9, 1])
+                col1, col2, col3 = st.sidebar.columns([8, 1, 1])
                 col1.markdown(f"- {text}")
                 delete_button = col2.button("❌", key=f"delete_{idx}")
                 if delete_button:
-                    texts.pop(idx)
-                    with open('db/texts.json', 'w') as jn:
-                        json.dump(texts, jn, indent=4)
-                    st.experimental_rerun()
+                    confirm_delete = st.sidebar.button(f"Confirm Delete {idx}")
+                    if confirm_delete:
+                        texts.pop(idx)
+                        with open('db/texts.json', 'w') as jn:
+                            json.dump(texts, jn, indent=4)
+                        st.experimental_rerun()
     else:
         st.sidebar.write("No thoughts recorded yet.")
     
